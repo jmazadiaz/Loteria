@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>informe_loteria.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<style>
+  body {
+  max-width: 841mm;
+  max-height: 594mm;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+  .left-col {
+    float: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 50%;
+    
+  }
+  .right-col {
+    float: right;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 50%;
+    
+  }
+  .center {
+    text-align:center;
+  }
+  .spacer {
+    margin-bottom: 20px;
+  }
+  table {
+    font-size: 7px; /* puedes ajustar el tamaño de letra según tus necesidades */
+    text-align:center;
+  }
+</style>
+<div class="center spacer">
+  <h1> La raiz de la Lotería </h1>
+  <h2> Jesús E. Maza D. y  María V. Blanco </h2>
+</div>
+<div class="spacer">
+  <div class="left-col">
+    <h2> Introducción </h2>
+    <p> La motivaciones hacen las diferencias, porque las buenas acciones solo pueden ser vista por nuestros corazones. Las fiestas que se celebraban cada dos fines de semanas empezaron a llamar mi atención hasta que un día me acerque y encontré un mar de personas sentadas en mesas imporvisadas donde llenaban cartones con diferentes figuras, en la oscuridad de la noche, algunos aprovechaban la luz de los postes y otros se ayudaban con sus telefonos moviles, como si cada personas manisfestara su esperazan con el brillo de su lampara. Con tanta gente reunidad, era imposible que descartar la posibilidad de descubir ¿Como es el juego de La Loteria?
+    </p>
+    <p> Recorde que la lotería se remonta al siglo II AC, los chinos y los britanicos las usaron para financiar sus proyectos de expansión. Recuerdo que me parecía un buen negocio a primera vista, porque todos las partes ganan más de lo que tenian antes. Para los que no conocen el juego, la loteria tradicional, conciste en un conjunto de fichas que estan dentro de una bolsa y un conjunto de tablas, que contiene grupos de estas fichas ordenados en filas y columnas, estos cartones deberian ser todos diferentes, entonces, una mano inocente va sacando las fichas de una bolsa y se gana cuando se cumple el requisito para ganar, que puede ser, una fila llena, una columna llena, 4 esquinas, el centro o en algunos casos, llenar todo el carton. </p>
+    <p> Pero en esta lotería, tenemos 6 cartones compuestos por dos filas de 4 cuatro fichas, algo así como 140 fichas y hasta el año pasado contaba con mas o menos 50.000 cartones hechos a mano. Con 140 fichas se pueden hacer muchisimos más cartones sin repetir. 
+<p><img src="media/comb_fichas.png" alt="combinatoria"></p>
+<p>Estamos hablando de $4,976𝑥10^{11}$ tablas, no obstante, concursar con todos esos cartones seria bien aburrido, solo harían falta 8, 16 o 24 fichas necesarias para llenar 1, 2 o 3 cartones, respectivamente, dependiendo del sorteo que se haga, son 8 sorteos en total en donde el primero y el septimo se necesitan llenar 2 cartones, este tiene un premio con un valor de 800 a 1200$, del 2do al 6to, se necesita llenar solo un carton para optar a 300$ de premio y el último sorteo, se necesitan llenar 3 cartones para optar al premio mayo que ultimamente ha estadon entre 6000 y 8000 $.</p>
+  </p>
+  <p> Como les insinue al principio, el tipo de motivacion que usemos para alcanzar nuestras metas hace la diferencia, a mi me vencio la curiosidad de conocer más sobre el juego, en este punto, fui bastante peresoso, en ves de esperar 5 años para registrar un número significativos de datos, me fuí por el camino facil y simule muchos, pero muchisimos sorteos y aprendí mucho sobre el juego.</p>
+  <h2> Conocer y Comprender </h2>
+  <p> Contar es una habilidad nata en todos nosotros asi como lo puede ser comer, reposar... asi como cuando va acomprar comida y le parece que no es el peso correcto o le dan un vuelto incorrecto o cuando esta en una cola de bus e intenta responder cuantos buses faltan para llegar a su turno. Me gusta ver a quien tengo alrededor, me resultó muy curioso, la forma en la que la gente reacciona a las fichas cantadas en el sorteo, es inevitable no escuchar comentarios como 'Ahora vienes a salir coñ...', 'primera vez', ' otra ves el burro' y porque no 'el martillo tiene tiempo que no sale'. </p>
+  <p> . Siempre me hago recordar que la inteligencia colectiva no es una panacea para todos los problemas y desafíos que enfrentamos, pero puede ser una herramienta valiosa para abordarlos de manera efectiva. Aquellas voces anonimas se convirtineron en mi inspiración, por lo que me decidí a contestar la siguiente pregunta. ¿Como se puede ganar en este juego?, para no decir otra v4!n@.</p>
+  <h3> Comprender</h3>    
+  <p>toda las experiencias nos dejan un saldo postivo, porque, hasta el momento no he ganado ningun sorteo, sin embargo la satisfaccion de comprender un problema mientras lo vives, deberia valer más que materializar una victoria basada en el azar. Por que lo dura es bueno y la plata siempre se gasta. Ademas, el anelo de un futuro donde conseguimos un premio nos lleva mas penas, porque sencillamente no sabe cuanto va a esperar, o Si?
+    Luego de comprender que la ciencia no me iba a dar el premio gordo, me dedique a estudiar el juego. 
+</p>
+  <p>
+<p><img src="media/tabla_de_ferecuencia_sorteo-1_y_2.png" alt="baraja"></p></p>
+  </div>
+  <div class="right-col">
+<h3>Conocer</h3>
+   <p>Aproveche de vicitar al mono poto, le explique como era el juego y que me gustaria ganar y el me recomendo que escogiera cartones con muchas fichas repetidas, que jugara en sorteos pequeños, donde no hubiese tanta gente y que ademas, jugara con varaitas tablas que fueran diferentes, que las fichas de una tabla no este en las fichas de otra. Tambien me conto que poco a poco iba a darme cuenta cuando est´aban por cantar loteria y de cuales fichas salian más que otra, porque, sitando lo que me dijo, 'fichas hechas a mano dentro de un bolsa, eso no es nada justo'. La verdad esto ultimo se lo creo porque en un dado perforado, las fichas que mas salen son 6,5 y 4, porque son los lados que pesan menos por el poco de hueco que tienen. Le tome la palabra y me resultó, porque ahora lleno más los cartones, pero como me ganó curiosidad, le pedi ayuda a  otra amiga y me dijo que con python podia hacer todas las loterias que quisera y así podía ver porque El poto mono me dijo lo que me dijo. </p> 
+  <h2> Resultados </h2>
+    <p> Hice varias simulaciones, unas para ver el como influia el número de fichas, otra para ver como influia el número de cartones, una tercera para ver como era una loteria con fichas aleatorio y por ultimo una cuarta para ver con influia las fichas seudoaleatorias en los resultados. </p>
+    <table>
+  <tr>
+    <th>Conf</th>
+    <th>Primera</th>
+    <th>Segunda</th>
+    <th>Tercera</th>
+    <th>Cuarta</th>
+  </tr>
+  <tr>
+    <td>N.Fchs</td>
+    <td>[50-170] 10 en 10</td>
+    <td>80</td>
+    <td>80</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>C.win</td>
+    <td >[1,2,3] sd(1)</td>
+    <td >[1,2,3] Unico</td>
+    <td >[1,2,3] Mismo</td>
+    <td >[1,2,3] Mismo</td>
+  </tr>
+  <tr>
+    <td>N.Cart.</td>
+    <td>1</td>
+    <td>[5-30] 5/5</td>
+    <td>100</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>dist</td>
+    <td>Unfrm</td>
+    <td>Unfrm</td>
+    <td>Unfrm</td>
+    <td>NoUnfrm</td>
+  </tr>
+  <tr>
+    <td>N.Rond</td>
+    <td>1k x C/U</td>
+    <td>1k x C/U</td>
+    <td>[5k,2k,1k]</td>
+    <td>[5k,2k,1k]</td>
+  </tr>
+</table>
+<p> luego de ese poco de loteria que hizo la culebrota en la pc, anotando las fichas cantadas hasta que algunos de los carones hechan lotería, se puede ver por el mono poto nos dijo lo de los cartones, quizas usted ya lo imaginón pero vean esta joyita.
+<p><img src="media/hist_num_fichasvstab2win.png" alt="1carton">
+cuando hay mas fichas, el rango de fichas catada en la que se gana una loteria se va ensachando, por eso vemos una montaña bien alta en rojo para 50 fichas y esta loma, va callendo hasta llegar 170 fichas, tabien se nota, que el numero de cartones llenos hace que esta loma gris, para las tres formas de ganar, 1,2 y 3 cartones llenos, sea mas empinada en cada caso respetivo.</p>
+<p><img src="media/inferencia_num_fichas_separado_tab_1-3.png" alt="promedi"></p>
+<p>Por eso es que por ceparado, la sombra de cada linea, es más angosta y asu ves es mas inclinada. Es decir que para pocos cartones, ganar una loteria con tres cartones llenos, podria a estar entre la ficha 85 y la ficha 100, y para llenar un carton estaria entre la ficha 80 y la 120.</p>
+</p>
+<p>Cuando agregamos los cartones, el indicador va cambiando, por ejemplo, si jugamos con todos los cartones posibles sin repetir ninguno, ¿Cuantas fichas tienen que cantarse para que se llene 1 carton? Pues resulta que solo 8 fichas y es que estan todas las combinaciones posibles, este hecho ya nos da la idea de que a medida que aumenta el numero de cartones, o tablas en juego, la cantidad de fichas cantdas antes de cumplir la condicion para ganar va a disminuir, eso se aprecia en la siguentes graficas.
+<p><img src="media/hist_loto_numtab_kde1_d_5_a_100_.png" alt="kde_1carton">
+<img src="media/hist_loto_numtab_kde2_d_5_a_100_.png" alt="kde_2cartones">
+<img src="media/hist_loto_numtab_kde3_d_5_a_100_.png" alt="kde_3cartones"></p>
+ </p>
+ <p>Esto podria ser un indicador para saber contra cuantos estamos jugando en promedio, porque, del mismo modo que usted no sabe cuanto es exactamente 1 minuto, tambopo va a saber en que ficha exacta van a cantar loteria. Esta habilidad varia entre individuos, pero es util al momento de identificar si hay o no un truco, aprovecho para resaltar que lo que dijo el mono poto, que usar unas fichas en una bolsa no nos garantizará que todas las fichas tienen la misma capacidad  de salir. Y es que me tome la libertad de hacer el registro de dos sorteos y apareció esto.
+<p>Pero antes de ver el conteo de fichas, me gustaria mostrar como se veria el contraste entre una baraja aleatorio y una baraja con diferente peso, por ejemplo, las fichas mas pesadas y mas al fondo salen menos que las mas livianas y en la superfice. Para esto, le di una ventaja del 20% a las fichas del primer carton. Aclaro, que las fichas del primer caton tambien estan repartidas en los demas cartones.</p>
+<p><img src="media/hist_comp_wintab_ALL_carts.png" alt="difwin">
+En este grafico tenemos 100 filas que representan 100 tablas de la tercera y cuarta simulacion, para 1000 sorteos, cada carton de cada tabla gano n veces, si en una tabla todos los cartones ganaron 4 veces cada uno, entonces aparecera un solo cuadro oscuro en el 4 de las horizontal, y si solo uno carton gano 8 veces y los demas 1,2,3,4,5, veremos 6 cuadros claros en las marcas 1, 2, 3, 4, 5 y 8. Si nos fijamos nada mas en el primer caton vemos que para 1 carton lleno, la trampa no es muy evidente  la marcas azules son muy parecidas sin embargo para 3 cartones se aprecia que la tabla gana mas de 12 doce veces cada carton a diferencia de una baraja aleatoria que paenas llega  8 y 9 veces a completar 3 cartones. Y para demostrar que el mono poto tenia razon, aqui les dejo la distribución de fichas de 2 sorteos.</p>
+</p>
+<h2> Que habrá visto el mono? </h2>
+<p> Esto no es determinante, estamos contrastando miles de rondas de juego contra apenas 1600 fichas cantadas, mucha gente comente que la última loteria es diferente, salen otras fichas, lo que no deberia ser posible, puden que uno o dos sorteos sean diferentes pero que 7 de los 8 sorteos tengas una frecuencias evidente y que el octavo cambie por completo las la frecuenica de salida de fichas, en todas la celebraciones? </p>
+<p> Por el momentono no me interesa hacer analisis que compromentan mi palabra, sin embargo, le invito, que al igual que yo haga sus propias conclusiones.  </p>
+<p> Por ejemplo, cuando usted note las loterias se estan ganando muy rapido, tenga la certeza que hay al menos el doble de gente que otras veces, si siempre trada mucho en sacar la polla, cuando hay tanta gente, puede sospechar de algo raro, como dije, este metodo solo cuenta las veces que sucede algo y de este modo, estiamar que tan regular es el evento. Porque se puede ganar la loteria con las primeras 8 fichas.  </p>
+<p>Aunque la inteligencia colectiva puede carecer de memoria y no siempre producir resultados inmediatos, puede tener un impacto significativo en la resolución de problemas y la toma de decisiones a largo plazo. Al escuchar y valorar las voces del anonimato, podemos aprovechar el poder de la sabiduría colectiva para abordar los desafíos que enfrentamos y crear un futuro más próspero y sostenible para todos.</p>
+  </div>
+</div>
+<div class="center spacer">
+  <h2> Referencias </h2>
+  <p> Listado de las referencias bibliográficas citadas en el poster </p>
+</div>
+<div class="center spacer">
+  <h2> Agradecimientos </h2>
+  <p> Agradecimientos a personas o instituciones que hayan contribuido de alguna manera en la investigación </p>
+</div>
+<div class="center spacer">
+  <h2> Contacto </h2>
+  <p> Información de contacto de los autores para preguntas o comentarios adicionales </p>
+</div>
+
+</body>
+</html>

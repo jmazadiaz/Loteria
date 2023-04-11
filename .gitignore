@@ -1,0 +1,13 @@
+#Para ignorar carpetas
+.ipynb_checkpoints/*
+data/*
+media/test/*
+temp/*
+src/__pycache__/*
+src/.ipynb_checkpoints/*
+
+# Archivos en raiz
+*.swp
+*.kate-swp
+
+
